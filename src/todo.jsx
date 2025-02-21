@@ -1,5 +1,5 @@
 import Form from './Form'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 function Todo() {
 
@@ -10,11 +10,15 @@ function Todo() {
       return;
     }
  
-  const newTodo = [todo, ...todos];
+  const newTodo = [todo, ...todos]
   setTodo(newTodo);
-  console.log(...todos);
-
+  
 }
+
+useEffect(() => {
+  console.log("Todos updated:", todos); // Log inside useEffect
+}, [todos]); // Only run when todos changes
+
 
   return (
     <div class="flex flex-col items-center justify-center mt-30">
