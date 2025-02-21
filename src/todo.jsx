@@ -20,11 +20,7 @@ function Todo() {
     <div class="flex flex-col items-center justify-center mt-30">
       <h1 className="text-4xl">Todo</h1>
       <Form onSubmit={add}/>
-      <ul>
-       
-          <li>{todos.text}</li>
-      
-      </ul>
+
     </div>
   );
 }
