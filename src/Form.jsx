@@ -20,11 +20,9 @@ const Forms = (props) => {
 
   return (
     <>
-      <form
-        
-        onSubmit={handleAdd}
-      >
-        <input 
+      <form className="flex"
+      onSubmit={handleAdd}>
+        <input
           value={tasks}
           onChange={handleChange}
           type="text"
@@ -33,7 +31,7 @@ const Forms = (props) => {
         />
         <button
           type="submit"
-          className="bg-amber-300 h-10 mt-1 ml-5 w-15 rounded-2xl hover:bg-amber-500 transition-all ease-in-out"
+          className="bg-amber-300 h-10 mt-5 p-2 ml-1 w-15 rounded-xl hover:bg-amber-500 transition-all ease-in-out"
         >
           Add
         </button>
