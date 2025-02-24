@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TodoContext } from "./Todo"; 
 
-const Forms = (props) => {
+const Form = () => {
   const [tasks, setTask] = useState("");
+  const { addTodo } = useContext(TodoContext); // Access the `add` function from context
 
   const handleChange = (e) => {
     setTask(e.target.value);
@@ -10,7 +12,7 @@ const Forms = (props) => {
   const handleAdd = (e) => {
     e.preventDefault();
 
-    props.onSubmit({
+    addTodo({
       id: Math.floor(Math.random() * 10000),
       text: tasks,
     });
@@ -20,8 +22,7 @@ const Forms = (props) => {
 
   return (
     <>
-      <form className="flex"
-      onSubmit={handleAdd}>
+      <form className="flex" onSubmit={handleAdd}>
         <input
           value={tasks}
           onChange={handleChange}
@@ -40,4 +41,4 @@ const Forms = (props) => {
   );
 };
 
-export default Forms;
+export default Form;
