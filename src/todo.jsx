@@ -14,7 +14,7 @@ function Todo() {
   };
 
   const deletetodo = (index) => {
-    const updated = todos.filter((todo, i) => i == index);
+    const updated = todos.filter(todo => todo.id !== index);
     setTodo(updated);
   }
 
@@ -27,9 +27,9 @@ function Todo() {
       <h1 className="text-4xl">Todo</h1>
       <Form onSubmit={add} />
       <ul>
-        {todos.map((todo, index) => (
-          <li key={index} className="mt-2">
-            {todo.text} <button onClick={() => deletetodo(index)}>D</button>
+        {todos.map((todo) => (
+          <li key={todo.id} className="mt-2">
+            {todo.text} <button onClick={() => deletetodo(todo.id)}>D</button>
           </li>
         ))}
       </ul>
@@ -57,6 +57,7 @@ return todos.map((todo, index) => (
 ))
 
 } 
+
 
 
 export default Todo;
